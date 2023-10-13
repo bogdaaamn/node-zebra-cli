@@ -24,7 +24,6 @@ module.exports = {
 	overrides: [
 		{
 			extends: [
-				"plugin:jsdoc/recommended-typescript-error",
 				"plugin:@typescript-eslint/strict",
 				"plugin:@typescript-eslint/stylistic",
 			],
@@ -32,19 +31,12 @@ module.exports = {
 			parser: "@typescript-eslint/parser",
 			rules: {
 				// These off-by-default rules work well for this repo and we like them on.
-				"jsdoc/informative-docs": "error",
 				"logical-assignment-operators": [
 					"error",
 					"always",
 					{ enforceForIfStatements: true },
 				],
 				"operator-assignment": "error",
-
-				// These on-by-default rules don't work well for this repo and we like them off.
-				"jsdoc/require-jsdoc": "off",
-				"jsdoc/require-param": "off",
-				"jsdoc/require-property": "off",
-				"jsdoc/require-returns": "off",
 			},
 		},
 		{
@@ -62,24 +54,9 @@ module.exports = {
 				"deprecation/deprecation": "error",
 			},
 		},
-		{
-			excludedFiles: ["package.json"],
-			extends: ["plugin:jsonc/recommended-with-json"],
-			files: ["*.json", "*.jsonc"],
-			parser: "jsonc-eslint-parser",
-			rules: {
-				"jsonc/sort-keys": "error",
-			},
-		},
-		{
-			files: ["*.jsonc"],
-			rules: {
-				"jsonc/no-comments": "off",
-			},
-		},
 	],
 	parser: "@typescript-eslint/parser",
-	plugins: ["@typescript-eslint", "deprecation", "import", "jsdoc", "regexp"],
+	plugins: ["@typescript-eslint", "deprecation", "import", "regexp"],
 	reportUnusedDisableDirectives: true,
 	root: true,
 	rules: {
@@ -97,14 +74,6 @@ module.exports = {
 		"@typescript-eslint/padding-line-between-statements": [
 			"error",
 			{ blankLine: "always", next: "*", prev: "block-like" },
-		],
-		"perfectionist/sort-objects": [
-			"error",
-			{
-				order: "asc",
-				"partition-by-comment": true,
-				type: "natural",
-			},
 		],
 	},
 };
